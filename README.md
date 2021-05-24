@@ -1,0 +1,2 @@
+# trash
+trash my project
