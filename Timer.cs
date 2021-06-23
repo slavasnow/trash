@@ -15,10 +15,21 @@ public class Timer : MonoBehaviour
     public float countMinut;
     public int countHours;
     public int countDays;
+
+    public Image bar;
+    public float fill;
+
+    public Slider slider;
+
+    public float maxValue;
     // Start is called before the first frame update
     void Start()
     {
         ArrayReload(enemy);
+
+        fill = 1f;
+        maxValue = 100f;
+        slider.value = maxValue;
     }
 
     // Update is called once per frame
@@ -47,6 +58,9 @@ public class Timer : MonoBehaviour
             countDays += 1;
             days.text = countDays.ToString();
         }
+        slider.value -= Time.deltaTime;
+        
+        if (slider.value == 0) slider.value = maxValue;
     }
 
     void Spawn(GameObject enemy)
