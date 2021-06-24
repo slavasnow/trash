@@ -127,4 +127,16 @@ public class MapGenerate : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Функция поиска пустых тайлов и спавна объекта
+    /// </summary>
+    void Generate()
+    {
+        var tile = map.GetTile(new Vector3Int(1,1,0));
+        Debug.Log(tile);
+        if (tile == null)
+        {
+            Instantiate(obj, new Vector2(0,5), Quaternion.identity);
+        }
+    }
 }
