@@ -111,4 +111,20 @@ public class MapGenerate : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Функция границы краев
+    /// </summary>
+    void GenerateMapBorders() // генерация границ карты
+    {
+        for (int x = -size.x - 1; x < size.x + 1; x++)
+        {
+            for (int y = -size.y - 1; y < size.y + 1; y++)
+            {
+                baseMapBorders.SetTile(new Vector3Int(x,size.y,0), objectTile);
+                baseMapBorders.SetTile(new Vector3Int(x,-size.y - 1,0), objectTile);
+                baseMapBorders.SetTile(new Vector3Int(size.x,y,0), objectTile);
+                baseMapBorders.SetTile(new Vector3Int(-size.x - 1,y,0), objectTile);
+            }
+        }
+    }
 }
